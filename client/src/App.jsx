@@ -23,15 +23,16 @@ const App = () => {
       <Toaster />
       {!isAdminRoute && <Navbar />}
       <Routes>
+        {/* user routes */}
         <Route path="/" element={<Home />} />
         <Route path="/movies" element={<Movies />} />
         <Route path="/movies/:id" element={<MoviesDetails />} />
         <Route path="/movies/:id/:date" element={<SeatLayout />} />
         <Route path="/my-bookings" element={<MyBookings />} />
         <Route path="/favorite" element={<Favorite />} />
+
         {/* admin routs */}
         <Route path="/admin/*" element={<Layout />}>
-
           <Route index element={<Dashboard />} />
           <Route path="add-shows" element={<AddShows />} />
           <Route path="list-shows" element={<ListShows />} />

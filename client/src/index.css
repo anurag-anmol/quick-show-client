@@ -2,9 +2,8 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #f84565;
-  /* If you want to define another primary color, use a different variable name */
-  --color-primary-dull: #d63854;
+  --color-primary: #F84565;
+  --color-primary-dull: #D63854;
 }
 
 * {

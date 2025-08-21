@@ -12,7 +12,7 @@ const DateSelect = ({ dateTime, id }) => {
     const onBookHandler = () => {
         if (!selected) { return toast('Please select date') }
         navigate(`/movies/${id}/${selected}`)
-        screenTop(0, 0);
+        scrollTo(0, 0);
     }
 
     return (
@@ -27,7 +27,7 @@ const DateSelect = ({ dateTime, id }) => {
                         <ChevronLeftIcon width={28} />
                         <span className='grid grid-cols-3 md:flex flex-wrap md:max-w-lg gap-4'>
                             {Object.keys(dateTime).map((date) => (
-                                <button onClick={() => setSelected(date)} key={date} className={`flex flex-col items-center justify-center h-14 w-14 aspect-square rounded cursor-pointer ${selected === date ? 'bg-primary text-white' : 'border border-primary/70'}`}>
+                                <button onClick={() => setSelected(date)} key={date} className={`flex flex-col items-center justify-center h-14 w-14 aspect-square rounded cursor-pointer ${selected === date ? 'bg-primary text-wh ite' : 'border border-primary/70'}`}>
                                     <span>{new Date(date).getDate()}</span>
                                     <span>{new Date(date).toLocaleDateString('en-US', { month: 'short' })}</span>
                                 </button>

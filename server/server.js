@@ -31,6 +31,8 @@ import connectDB from "./configs/db.js";
 import { clerkMiddleware } from "@clerk/express";
 import { serve } from "inngest/express";
 import { inngest, functions } from "./inngest/index.js";
+import showRouter from "./routes/showRoutes.js";
+import bookingRouter from "./routes/bookingRoute.js";
 
 const app = express();
 const port = 3000;
@@ -44,7 +46,8 @@ app.use(cors());
 app.use(clerkMiddleware());
 
 // ✅ Test endpoint
-app.get("/", (req, res) => res.json({ message: "✅ Server is live.." }));
+// ✅ API Routes
+app.get("/", (req, res) => res.send("✅ Server is live.."));
 
 // ✅ Inngest endpoint
 app.use(
@@ -55,6 +58,8 @@ app.use(
         signingKey: process.env.INNGEST_SIGNING_KEY, // ✅ Inngest verifies incoming signatures
     })
 );
+app.use('/api/show', showRouter);
+app.use('/api/booking', bookingRouter);
 
 // ✅ Start server
 app.listen(port, () =>
