@@ -19,7 +19,7 @@ import mongoose from "mongoose";
 const connectDB = async () => {
     try {
         mongoose.connection.on('connected', () => console.log("Database Connected ....."));
-        await mongoose.connect(`${process.env.MONGODB_URI}/quickShow`);
+        await mongoose.connect(`${process.env.MONGODB_URI}/QuickShow`);
         console.log('✅ MongoDB connected');
     } catch (error) {
         console.error('❌ MongoDB connection error:', error);

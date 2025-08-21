@@ -1,9 +1,8 @@
-// inngest/index.js
 import { Inngest } from "inngest";
-// import User from "../models/User.js";
+import User from "../models/User.js";
 
 // ✅ Create Inngest client
-export const inngest = new Inngest({ id: "movie-ticket-booking" });
+export const inngest = new Inngest({ id: "booking-by-quickShow" });
 
 // ✅ Clerk -> Inngest functions
 
@@ -30,6 +29,7 @@ const syncUserDeletion = inngest.createFunction(
     { event: "clerk/user.deleted" },
     async ({ event }) => {
         const { id } = event.data;
+        console.log(" ID :- ", id);
         await User.findByIdAndDelete(id);
         console.log('🗑️ User deleted:', id);
     }
